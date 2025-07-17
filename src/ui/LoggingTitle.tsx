@@ -1,7 +1,7 @@
 import SplitText from "../TextAnimations/SplitText/SplitText";
 import { useEffect, useState } from "react";
 
-function Title() {
+function LoggingTitle() {
   const [key, setkey] = useState(0);
 
   useEffect(() => {
@@ -16,4 +16,4 @@ function Title() {
   );
 }
 
-export default Title;
+export default LoggingTitle;

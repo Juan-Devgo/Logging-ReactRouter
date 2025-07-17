@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import "./Logging.css";
+import "./LoggingBody.css";
 
 interface LoggingProps {
   splashCursor: ReactNode;
 }
 
-function Logging({ splashCursor }: LoggingProps) {  
+function LoggingBody({ splashCursor }: LoggingProps) {  
   const [id, setId] = useState("");
   const [splashCursorEnabled, setSplashCursorEnabled] = useState(true);
   const [buttonPressed, setButtonPressed] = useState(false);
@@ -75,4 +75,4 @@ function Logging({ splashCursor }: LoggingProps) {
   );
 }
 
-export default Logging;
+export default LoggingBody;
