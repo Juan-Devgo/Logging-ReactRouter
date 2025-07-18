@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import "./LoggingBody.css";
+import "./LogingBody.css";
 
 interface LoggingProps {
+  onSubmit: (id: string) => void;
   splashCursor: ReactNode;
 }
 
-function LoggingBody({ splashCursor }: LoggingProps) {  
+function LoggingBody({ onSubmit, splashCursor }: LoggingProps) {  
   const [id, setId] = useState("");
   const [splashCursorEnabled, setSplashCursorEnabled] = useState(true);
   const [buttonPressed, setButtonPressed] = useState(false);
@@ -36,6 +37,7 @@ function LoggingBody({ splashCursor }: LoggingProps) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setButtonPressed(true);
+    onSubmit(id);
   }
 
   return (
@@ -53,16 +55,16 @@ function LoggingBody({ splashCursor }: LoggingProps) {
           type="text"
           placeholder="ID"
           onChange={(e) => handleInputChange(e)}
-          className="bg-white font-bold rounded text-black text-center placeholder:text-slate-500 placeholder:font-normal placeholder:text-center"
+          className="bg-white font-bold rounded h-7 text-black text-center placeholder:text-slate-500 placeholder:font-normal placeholder:text-center"
         ></input>
         <button
           type="submit"
-          className={buttonPressed? "bg-gray-500 text-gray-700 font-bold py-2 px-4 rounded" : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}
+          className={buttonPressed? "bg-gray-500 text-gray-700 font-bold py-2 px-4 rounded" : "bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded hover:text-2xl transition-all duration-300"}
         >
           {buttonPressed? "Cargando..." : "Descubre"}
         </button>
       </form>
-      <label className="flex items-center gap-2 mt-4 border border-gray-600 p-2 rounded">
+      <label className="flex items-center gap-2 mt-4 border border-gray-600 p-2 rounded  hover:bg-slate-800 transition-all duration-300">
         <span className="text-sm text-gray-400"> Desactivar splash cursor</span>
         <input
           type="checkbox"
